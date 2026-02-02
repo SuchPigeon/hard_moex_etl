@@ -1,1 +1,26 @@
 # hard_moex_etl
+
+## Architecture plans
+
+### RAW DATA
+- API MOEX
+- MINIO S3
+- KAFKA
+
+### STAGING
+- POSTGRESQL
+- SPARK
+
+### CORE
+- POSTGRESQL
+- DBT
+
+### DATAMART
+- CLICKHOUSE
+
+### BI
+- SUPERSET
+
+### MONITORING
+- PROMETHEUS
+- GRAFANA

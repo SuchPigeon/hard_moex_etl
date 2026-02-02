@@ -1,0 +1,23 @@
+services:
+  postgres-dwh:
+    image: postgres:18.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_DWH_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_DWH_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DWH_DBNAME}
+    volumes:
+      - dwh-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "dwh"]
+      interval: 15s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+
+volumes:
+  dwh-volume:
+networks:
+  dwh-net:
+    driver: bridge

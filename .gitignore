@@ -1,4 +1,6 @@
-.env
+# Secrets
+docker-compose/.env
 
+# Cache and logs
 dags/__pycache__
 logs/
